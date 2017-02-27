@@ -1,0 +1,134 @@
+
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <title>homepage_test</title>
+
+  <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+  <link rel="import" href="/bower_components/font-roboto/roboto.html">
+  <link rel="import" href="/bower_components/iron-icons/iron-icons.html">
+  <link rel="import" href="/bower_components/iron-image/iron-image.html">  
+  <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="/bower_components/paper-item/paper-icon-item.html">
+  <link rel="import" href="/bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+  <link rel="import" href="/bower_components/app-layout/app-drawer/app-drawer.html">
+  <link rel="import" href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+  <link rel="import" href="/bower_components/paper-item/paper-item.html">
+  <link rel="import" href="/bower_components/paper-menu/paper-menu.html">
+  <link rel="import" href="/bower_components/iron-pages/iron-pages.html">
+  <link rel="import" href="/bower_components/app-layout/app-header/app-header.html">
+  <link rel="import" href="/bower_components/app-layout/app-header-layout/app-header-layout.html">
+  <link rel="import" href="/bower_components/app-layout/app-toolbar/app-toolbar.html">
+  <link rel="import" href="/bower_components/app-layout/demo/sample-content.html">
+  <link rel="import" href="/bower_components/app-layout/app-scrollpos-control/app-scrollpos-control.html">
+
+  <link rel="import" href="/Image/uengine.html">
+
+
+  <style is="custom-style">
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', 'Noto', sans-serif;
+      background-color: #eee;
+    }
+
+    .blueHeader {
+      background-color: #86898c;
+      color: #fff;
+    }
+
+    .blueHeader paper-icon-button {
+      --paper-icon-button-ink-color: white;
+    }
+
+    .whiteHeader {
+      font-weight: bold;
+      background-color: white;
+    }
+
+    .iconItem {
+      color: #666;
+    }
+
+  </style>
+
+</head>
+<body unresolved>
+
+  <template is="dom-bind">
+    <app-drawer-layout>
+      <app-drawer swipe-open>
+        <app-header-layout has-scrolling-region>
+          <app-header class="whiteHeader" waterfall fixed>
+            <app-toolbar>
+              <style is="custom-style">
+                #example-sizing-contain {
+                width: 165px;
+                height: 50px;
+                display: block;
+                
+                }
+              </style>
+              <iron-image  sizing="contain" id="example-sizing-contain" alt="uEngine Logo." src="/Image/Org.png"></iron-image>
+            </app-toolbar>
+          </app-header>
+        <paper-menu selected="{{page}}">
+          <paper-item><iron-icon icon='home'></iron-icon>&nbsp;&nbsp;&nbsp;Home</paper-item>
+          <paper-item><iron-icon icon='info'></iron-icon>&nbsp;&nbsp;&nbsp;About uEngine</paper-item>
+          <paper-item><iron-icon icon='inbox'></iron-icon>&nbsp;&nbsp;&nbsp;Products</paper-item>
+          <paper-item><iron-icon icon='create'></iron-icon>&nbsp;&nbsp;&nbsp;Case Studies</paper-item>
+          <paper-item><iron-icon icon='library-books'></iron-icon>&nbsp;&nbsp;&nbsp;Library</paper-item>
+          <paper-item><iron-icon icon='textsms'></iron-icon>&nbsp;&nbsp;&nbsp;Community</paper-item>
+          <paper-item><iron-icon icon='event'></iron-icon>&nbsp;&nbsp;&nbsp;Event</paper-item>
+          <paper-item><iron-icon icon='help'></iron-icon>&nbsp;&nbsp;&nbsp;Services</paper-item>
+        </paper-menu>
+      </app-drawer>
+        </app-header-layout>
+      </app-drawer>
+      <app-header-layout>
+        <app-header class="blueHeader" condenses reveals effects="waterfall">
+          <app-toolbar>
+            <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+            <div main-title></div>
+            <paper-icon-button icon="search"></paper-icon-button>
+            <paper-icon-button icon="more-vert"></paper-icon-button>
+          </app-toolbar>
+          <app-toolbar>
+            <div spacer main-title>uEngine</div>
+          </app-toolbar>
+        </app-header>
+        <div> 
+          <iron-pages selected="{{page}}">
+            <sample-content size="100"></sample-content>
+            <sample-content size="100"></sample-content>
+            <sample-content size="100"></sample-content>
+            <sample-content size="100"></sample-content>
+            <sample-content size="100"></sample-content>
+            <sample-content size="100"></sample-content>
+            <sample-content size="100"></sample-content>
+          <sample-content size="100"></sample-content>
+          </iron-pages>
+        </div>
+      </app-header-layout>
+    </app-drawer-layout>
+
+    <app-scrollpos-control selected="{{page}}"></app-scrollpos-control>
+  </template>
+
+</body>
+</html>
