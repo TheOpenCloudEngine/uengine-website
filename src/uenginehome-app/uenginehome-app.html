@@ -2,9 +2,13 @@
 
   <link rel="import" href="/bower_components/font-roboto/roboto.html">
   <link rel="import" href="/bower_components/iron-icons/iron-icons.html">
-  <link rel="import" href="/bower_components/iron-image/iron-image.html">  
+  <link rel="import" href="/bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="/bower_components/iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="/bower_components/iron-image/iron-image.html">
   <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="/bower_components/paper-item/paper-icon-item.html">
+  <link rel="import" href="/bower_components/app-menu/app-menu.html">
+  <link rel="import" href="/bower_components/app-menu/app-submenu.html">
   <link rel="import" href="/bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
   <link rel="import" href="/bower_components/app-layout/app-drawer/app-drawer.html">
   <link rel="import" href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
@@ -17,6 +21,15 @@
   <link rel="import" href="/bower_components/app-layout/demo/sample-content.html">
   <link rel="import" href="/bower_components/app-layout/app-scrollpos-control/app-scrollpos-control.html">
   <link rel="import" href="/bower_components/marked-element/marked-element.html">
+
+
+
+  <!-- menu  -->
+  <link rel="import" href="../uengine-home/uengine-home.html">
+  <link rel="import" href="../uengine-about/uengine-about.html">
+  <link rel="import" href="../uengine-about/uengine-about-opensource.html">
+  <link rel="import" href="../uengine-case-studies/uengine-case-studies.html">
+  <link rel="import" href="../youtube-box/youtube-box.html">
   <link rel="import" href="/Image/uengine.html">
 
 
@@ -26,7 +39,12 @@
   <template>
 
 
-  <style is="custom-style">
+  <style is="custom-style" include="demo-pages-shared-styles">
+   :root {
+    --app-menu-color: #616161;
+    --primary-color: #F62A5A;
+    --app-menu-selected-bg-color: rgba(0, 0, 0, 0.05);
+  }
 
     body {
       margin: 0;
@@ -35,7 +53,7 @@
     }
 
     .blueHeader {
-      background-color: #86898c;
+      background-color: #979A9A;
       color: #fff;
     }
 
@@ -49,7 +67,7 @@
     }
 
     .iconItem {
-      color: #666;
+      color: ##979A9A;
     }
 
   </style>
@@ -63,26 +81,118 @@
                 width: 165px;
                 height: 50px;
                 display: block;
-                
+
                 }
               </style>
               <iron-image  sizing="contain" id="example-sizing-contain" alt="uEngine Logo." src="/Image/Org.png"></iron-image>
             </app-toolbar>
           </app-header>
-        <paper-menu selected="{{page}}">
-          <paper-item><iron-icon icon='home'></iron-icon>&nbsp;&nbsp;&nbsp;Home</paper-item>
-          <paper-item><iron-icon icon='info'></iron-icon>&nbsp;&nbsp;&nbsp;About uEngine</paper-item>
-          <paper-item><iron-icon icon='inbox'></iron-icon>&nbsp;&nbsp;&nbsp;Products</paper-item>
-          <paper-item><iron-icon icon='create'></iron-icon>&nbsp;&nbsp;&nbsp;Case Studies</paper-item>
-          <paper-item><iron-icon icon='library-books'></iron-icon>&nbsp;&nbsp;&nbsp;Library</paper-item>
-          <paper-item><iron-icon icon='textsms'></iron-icon>&nbsp;&nbsp;&nbsp;Community</paper-item>
-          <paper-item><iron-icon icon='event'></iron-icon>&nbsp;&nbsp;&nbsp;Event</paper-item>
-          <paper-item><iron-icon icon='help'></iron-icon>&nbsp;&nbsp;&nbsp;Services</paper-item>
-        </paper-menu>
+        <app-menu selected="{{page}}">
+          <a class="app-menu-item" href="#">
+            <div>
+              <iron-icon class="app-menu-icon" icon="icons:chrome-reader-mode"></iron-icon>
+              <span> Home </span>
+            </div>
+          </a>
+
+          <app-submenu icon="icons:account-balance" name="About uEngine">
+            <app-menu>
+              <a class="app-menu-item">
+                <span>OpenSource</span>
+              </a>
+              <a class="app-menu-item">
+                <span>BPM</span>
+              </a>
+              <a class="app-menu-item">
+                <span>Architecture</span>
+              </a>
+              <a class="app-menu-item">
+                <span>Functionality</span>
+              </a>
+              <a class="app-menu-item">
+                <span>License</span>
+              </a>
+              <a class="app-menu-item">
+                <span>recruit</span>
+              </a>
+              <app-menu>
+                <div>
+                  <iron-pages >
+                     <uengine-about-opensource></uengine-about-opensource>
+                      <uengine-about-opensource></uengine-about-opensource>
+                       <uengine-about-opensource></uengine-about-opensource>
+                        <uengine-about-opensource></uengine-about-opensource>
+                         <uengine-about-opensource></uengine-about-opensource>
+                          <uengine-about-opensource></uengine-about-opensource>
+                  </iron-pages>
+                </div>
+          </app-submenu>
+
+          <a class="app-menu-item" href="#">
+            <div>
+              <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
+              <span> Products </span>
+            </div>
+          </a>
+
+          <a class="app-menu-item" href="#">
+            <div>
+              <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
+              <span> Case Studies </span>
+            </div>
+          </a>
+
+          <app-submenu icon="icons:description" name="Library">
+            <app-menu>
+              <a class="app-menu-item">
+                <span>John</span>
+              </a>
+              <a class="app-menu-item">
+                <span>Harry</span>
+              </a>
+            </app-menu>
+          </app-submenu>
+
+
+          <app-submenu icon="icons:perm-identity" name="Community">
+            <app-menu>
+              <a class="app-menu-item">
+                <span>John</span>
+              </a>
+              <a class="app-menu-item">
+                <span>Harry</span>
+              </a>
+            </app-menu>
+          </app-submenu>
+
+          <app-submenu icon="icons:event" name="Event">
+            <app-menu>
+              <a class="app-menu-item">
+                <span>John</span>
+              </a>
+              <a class="app-menu-item">
+                <span>Harry</span>
+              </a>
+            </app-menu>
+          </app-submenu>
+
+           <app-submenu icon="icons:view-module" name="Services">
+            <app-menu>
+              <a class="app-menu-item">
+                <span>John</span>
+              </a>
+              <a class="app-menu-item">
+                <span>Harry</span>
+              </a>
+            </app-menu>
+          </app-submenu>
+
+
+
+          </app-menu>
       </app-drawer>
-        </app-header-layout>
-      </app-drawer>
-      <app-header-layout>
+
+
         <app-header class="blueHeader" condenses reveals effects="waterfall">
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
@@ -94,10 +204,18 @@
             <div spacer main-title>uEngine</div>
           </app-toolbar>
         </app-header>
-        <div> 
-          <iron-pages selected="{{page}}">
-                 
 
+        <div>
+          <iron-pages selected="{{page}}">
+
+
+            <uengine-home></uengine-home>
+            <uengine-about>
+              <uengine-about-opensource></uengine-about-opensource>
+            </uengine-about>
+            <uengine-about-opensource></uengine-about-opensource>
+            <uengine-case-studies></uengine-case-studies>
+            <youtube-box></youtube-box>
             <marked-element>
               <div class="markdown-html"></div>
               <script type="text/markdown">
@@ -107,23 +225,24 @@
 This is contents
 ```
               </script>
-            
+
             </marked-element>
 
 
 
-          
+
           </iron-pages>
         </div>
       </app-header-layout>
     </app-drawer-layout>
 
-    <app-scrollpos-control selected="{{page}}"></app-scrollpos-control>  </template>
+    <app-scrollpos-control selected="{{page}}"></app-scrollpos-control>
+     </template>
 
   <script>
     Polymer({
 
- 
+
       properties:{
        is: 'uenginehome-app',
 

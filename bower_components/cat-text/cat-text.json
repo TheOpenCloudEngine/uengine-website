@@ -1,0 +1,68 @@
+[{
+    "tabName": "Settings",
+    "iconClass": "fa fa-gear",
+    "type": "controlsWithSubtabs",
+    
+    "controls": [{
+        "name": "Transition Type",
+        "id": "textTransitionType",
+        "type": "dropdown",
+        "options": ["fade", "scale", "slide", "none"]
+    }, {
+        "name": "Transition Direction",
+        "id": "textTransitionDirection",
+        "type": "dropdown",
+        "options": ["center", "left", "right", "top", "bottom"]
+    }, {
+        "name": "Transition Function",
+        "id": "textTransitionFunction",
+        "type": "dropdown",
+        "options": ["ease", "linear", "ease-in", "ease-out", "ease-in-out"]
+    }, {
+        "name": "Transition Duration",
+        "id": "textTransitionDuration",
+        "type": "numeric-input",
+        "min": 0,
+        "max": 5,
+        "step": 0.1
+    }, {
+        "name": "Transition Delay",
+        "id": "transitionDelay",
+        "type": "numeric-input",
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+    }, {
+        "name": "Slide Offset",
+        "id": "slideOffset",
+        "type": "numeric-input",
+        "min": 0,
+        "max": 200,
+        "step": 1,
+        "tip": "Percentage offset. Available only for Transition type: slide"
+    }, {
+        "name": "Visible on Load",
+        "id": "visibleOnLoad",
+        "type": "toggle",
+        "tip": "By default the text will appear only when it is in the viewport (visible area). If you don't want this, check to make it visible on load"
+    }, {
+        "name": "Manual Mode",
+        "id": "manualMode",
+        "type": "toggle",
+        "tip": "(Advanced) Enable this if you want to manually control when cat-text is shown or hidden"
+    }]
+}, {
+    "tabName": "Publish",
+    "iconClass": "fa fa-paper-plane",
+    "type": "genericContent"
+}, {
+    "limits" : [{
+        "master": "textTransitionType",
+        "slave": ["textTransitionDirection"],
+        "disabled": ["fade"]
+    }, {
+        "master": "textTransitionType",
+        "slave": ["slideOffset"],
+        "disabled": ["fade", "scale"]
+    }]
+}]

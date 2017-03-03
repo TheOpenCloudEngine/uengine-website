@@ -1,0 +1,79 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/google-youtube/google-youtube.html">
+
+<dom-module id="youtube-element22">
+  <style>
+    :host {
+      display: block;
+    }
+
+    :host([fluid]) {
+      width: 100%;
+      max-width: 100%;
+      position: relative;
+    }
+
+    :host([fluid]) iframe,
+    :host([fluid]) #thumbnail {
+      vertical-align: bottom;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+    }
+
+    iframe {
+      @apply(--google-youtube-iframe);
+    }
+
+    #container {
+      max-width: 100%;
+      max-height: 100%;
+      @apply(--google-youtube-container);
+    }
+
+  </style>
+    <template id="page-template">
+      <style>
+        div {
+          margin-bottom: 2em;
+        }
+      </style>
+    <div>
+      <h3>uEngine Customization 1/3</h3>
+      <google-youtube id="googleYouTube"
+                      video-id="ricAyobgOWc"
+                      >
+      </google-youtube>
+    </div>
+    <div class="buttons">
+      <paper-button
+      on-click="handlePauseVideo"
+      dialog-confirm autofocus
+      >Tap me to close</paper-button>
+    </div>
+    </template>
+</dom-module>
+  <script>
+    Polymer({
+      is: 'youtube-element22',
+      properties: {
+        playSupported: Boolean,
+        state: String,
+        currentTime: Number,
+        currentTimeFormatted: String,
+        duration: Number,
+        durationFormatted: String,
+        fractionLoaded: Number,
+        events: {
+          type: Array,
+          value: []
+        }
+      },
+      handlePauseVideo: function(ev) {
+        this.$.googleYouTube.pause();
+      }
+    });
+
+  </script>
