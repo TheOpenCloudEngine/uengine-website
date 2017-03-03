@@ -28,6 +28,10 @@
   <link rel="import" href="../uengine-home/uengine-home.html">
   <link rel="import" href="../uengine-about/uengine-about.html">
   <link rel="import" href="../uengine-about/uengine-about-opensource.html">
+  <link rel="import" href="../uengine-about/uengine-about-bpm.html">
+  <link rel="import" href="../uengine-about/uengine-about-architecture.html">
+  <link rel="import" href="../uengine-about/uengine-about-functionality.html">
+  <link rel="import" href="../uengine-about/uengine-about-license.html">
   <link rel="import" href="../uengine-case-studies/uengine-case-studies.html">
   <link rel="import" href="../youtube-box/youtube-box.html">
   <link rel="import" href="/Image/uengine.html">
@@ -46,7 +50,18 @@
     --app-menu-selected-bg-color: rgba(0, 0, 0, 0.05);
   }
 
-    body {
+    #body-content {
+      margin: 0;
+      font-family: 'Roboto', 'Noto', sans-serif;
+      margin-left: 30px;
+      margin-right: 50px;
+
+     
+    }
+
+    
+
+    .menu-content {
       margin: 0;
       font-family: 'Roboto', 'Noto', sans-serif;
       background-color: #eee;
@@ -71,30 +86,30 @@
     }
 
   </style>
-   <app-drawer-layout>
+   <app-drawer-layout >
       <app-drawer swipe-open>
-        <app-header-layout has-scrolling-region>
-          <app-header class="whiteHeader" waterfall fixed>
+        <app-header-layout has-scrolling-region class= "menu-content">
+          <app-header class= "menu-content" waterfall fixed>
             <app-toolbar>
               <style is="custom-style">
                 #example-sizing-contain {
                 width: 165px;
                 height: 50px;
                 display: block;
-
+                
                 }
               </style>
               <iron-image  sizing="contain" id="example-sizing-contain" alt="uEngine Logo." src="/Image/Org.png"></iron-image>
             </app-toolbar>
           </app-header>
 
-        <app-menu selected="{{page}}">
-          <a class="app-menu-item" href="#">
+        <app-menu selected="{{page}}" class= "menu-content">
+          <paper-button class="app-menu-item" href="#">
             <div>
               <iron-icon class="app-menu-icon" icon="icons:chrome-reader-mode"></iron-icon>
               <span> Home </span>
             </div>
-          </a>
+          </paper-button>
 
           <app-submenu icon="icons:account-balance" name="About uEngine">
             <app-menu selected="{{subpage}}">
@@ -197,14 +212,12 @@
           </app-toolbar>
         </app-header>
 
-        <div>
-          <iron-pages selected="{{page}}">
+        <div id = "body-content" >
+          <iron-pages class="body-content-subordinate" selected="{{page}}">
 
 
             <uengine-home></uengine-home>
-            <uengine-about>
-              <uengine-about-opensource></uengine-about-opensource>
-            </uengine-about>
+            <uengine-about></uengine-about>
             <uengine-about-opensource></uengine-about-opensource>
             <uengine-case-studies></uengine-case-studies>
             <youtube-box></youtube-box>
@@ -225,12 +238,12 @@ This is contents
 
           </iron-pages>
 
-          <iron-pages selected="{{subpage}}">
+          <iron-pages class="body-content-subordinate-sub" selected="{{subpage}}">
              <uengine-about-opensource></uengine-about-opensource>
-              <uengine-about-opensource></uengine-about-opensource>
-               <uengine-about-opensource></uengine-about-opensource>
-                <uengine-about-opensource></uengine-about-opensource>
-                 <uengine-about-opensource></uengine-about-opensource>
+              <uengine-about-bpm></uengine-about-bpm>
+               <uengine-about-architecture></uengine-about-architecture>
+                <uengine-about-functionality></uengine-about-functionality>
+                 <uengine-about-license></uengine-about-license>
                   <uengine-about-opensource></uengine-about-opensource>
           </iron-pages>
         </div>
