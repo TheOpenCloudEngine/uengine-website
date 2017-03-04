@@ -1,0 +1,75 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-collapse/iron-collapse.html">
+<!--
+Elements providing a responsive timeline
+
+Based on
+http://www.bootsnipp.com/snippets/featured/timeline-responsive
+
+##### Example
+
+    <bs-timeline></bs-timeline>
+
+@element bs-timeline
+@blurb Element providing a responsive timeline
+@status alpha
+@homepage http://polymerlabs.github.io/seed-element
+-->
+<dom-module id="bs-timeline" noscript>
+	<template>
+		<link rel="stylesheet" href="bs-timeline.css" />
+ 		<ul class="timeline">
+        	<content></content>
+    	</ul>
+	</template>
+</dom-module>
+
+<dom-module id="bs-timeline-entry" attributes="title badge time opened">
+    <template>
+		<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">	
+	  	<li id="entry">
+
+		<div class="timeline-badge" on-tap="{{toggleClick}}">
+			<i class="glyphicon glyphicon-{{badge}}"></i>
+		</div>
+        <iron-collapse id="colly" opened horizontal>
+            <div class="content">
+			<div class="timeline-panel">
+				<div class="timeline-heading">
+					<h4 class="timeline-title">{{title}}</h4>
+              		<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> {{time}}</small></p>
+            	</div>
+				<div class="timeline-body">
+			  		<content></content>
+            	</div>
+          	</div>
+          	</div>
+		</iron-collapse>
+		</li>
+	</template>
+	<script>
+		Polymer({
+		   is:'bs-timeline-entry', 
+		   properties:{
+			 opened : {type: Boolean, value:true},
+			 title : {type: String, value: "Lorem Ipsum"},
+			 badge : {type: String, value: "plus"},
+			 inverse : {type: Boolean, value: false}
+			},
+			_toggleClick : function(event,detail,sender) {
+				this.opened = !this.opened;
+			},
+			_openedChanged : function(oV,nV) {
+				this.$.colly.opened = nV;
+			},
+			_inverseChanged : function(oV,nV) {
+				var elm = this.$.entry;
+				if(nV) {
+					elm.className = "timeline-inverted";
+				} else {
+					elm.className = "";
+				}
+			}
+		});
+	</script>
+</dom-module>

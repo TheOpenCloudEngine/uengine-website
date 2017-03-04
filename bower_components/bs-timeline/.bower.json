@@ -1,0 +1,38 @@
+{
+  "name": "bs-timeline",
+  "version": "0.0.4",
+  "description": "Polymer element providing a responsive timeline, based on bootstrap",
+  "keywords": [
+    "polymer",
+    "web-components",
+    "bootstrap",
+    "timeline"
+  ],
+  "license": "MIT",
+  "authors": [
+    "Johannes Hund (h0ru5) <johannes.hund@gmail.com>"
+  ],
+  "main": "dist/bs-timeline.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "polymer": "polymer/polymer#~0.3.5",
+    "polymer-test-tools": "Polymer/polymer-test-tools#~0.3.5",
+    "bootstrap": "~3.2.0",
+    "core-collapse": "polymer/core-collapse#~0.3.5"
+  },
+  "homepage": "https://github.com/h0ru5/bs-timeline",
+  "_release": "0.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.4",
+    "commit": "265f9674c9415b9915edd9fb1c408d7cbaf4dd14"
+  },
+  "_source": "https://github.com/h0ru5/bs-timeline.git",
+  "_target": "^0.0.4",
+  "_originalSource": "bs-timeline",
+  "_direct": true
+}
