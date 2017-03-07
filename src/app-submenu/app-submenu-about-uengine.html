@@ -1,0 +1,85 @@
+ 	 <link rel="import" href="../../bower_components/app-menu/app-menu.html">
+ 	 <link rel="import" href="../../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+  	 <link rel="import" href="../../bower_components/app-layout/app-drawer/app-drawer.html">
+	 <link rel="import" href="../../bower_components/polymer/polymer.html">
+	 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+	 <link rel="import" href="../uenginehome-app/uenginehome-app.html">
+	 <script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+    
+
+
+	<dom-module id="app-submenu-about-uengine">
+	  <template>
+
+
+	<style is="custom-style" include="demo-pages-shared-styles">
+
+
+
+    .submenu-about-uengine {
+      margin: 0;
+      font-family: 'Roboto', 'Noto', sans-serif;
+      background-color: #fafafa;
+    }
+
+ 
+	</style>
+<app-drawer>
+  <app-menu class="submenu-about-uengine" selected="{{subpage}}">
+  		 <paper-button >
+            <div>
+              <p mini> OpenSource </p>
+            </div>
+          </paper-button>
+          <br>
+          <paper-button >
+            <div>
+              <p> BPM </p>
+            </div>
+          </paper-button>
+			<br>
+           <paper-button >
+            <div>
+              <p> Architecture </p>
+            </div>
+          </paper-button>
+			<br>
+           <paper-button >
+            <div>
+              <p> Functionality </p>
+            </div>
+          </paper-button>
+			<br>
+           <paper-button >
+            <div>
+              <p> License </p>
+            </div>
+          </paper-button>
+			<br>
+           <paper-button >
+            <div>
+              <p> Recruit </p>
+            </div>
+          </paper-button>
+ </app-menu>
+ </app-drawer>
+   </template>
+
+  <script>
+    Polymer({
+      
+ 
+      properties:{
+       is: 'app-submenu-about-uengine',
+        selected:{
+          value: 0
+        },
+        page: String
+
+      }
+    });
+  </script>
+
+
+</dom-module>
