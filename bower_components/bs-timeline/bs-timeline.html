@@ -30,8 +30,7 @@ http://www.bootsnipp.com/snippets/featured/timeline-responsive
 <dom-module id="bs-timeline-entry">
   <link rel="import" type="css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <template>
-	  	<li id="entry">
-
+	  	<li id="entry" >
 		<div class="timeline-badge" on-tap="toggleClick">
 			<i class$="{{_computeClass(badge)}}"></i>
 		</div>
@@ -59,7 +58,7 @@ http://www.bootsnipp.com/snippets/featured/timeline-responsive
         },
         inverse: {
           type: Boolean,
-          value: false,
+          value: true,
           observer: 'inverseChanged'
         },
         opened: {

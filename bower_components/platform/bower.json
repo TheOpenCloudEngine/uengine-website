@@ -1,16 +1,12 @@
 {
-  "name": "platform",
+  "name": "platform.js",
   "main": "platform.js",
-  "homepage": "https://github.com/Polymer/platform",
-  "authors": [
-    "The Polymer Authors"
-  ],
-  "description": "Integrate platform polyfills: load, build, test",
-  "keywords": [
-    "polymer",
-    "web",
-    "components"
-  ],
-  "license": "BSD",
-  "private": true
+  "ignore": [
+    ".*",
+    "*.log",
+    "*.md",
+    "package.json",
+    "doc",
+    "test"
+  ]
 }

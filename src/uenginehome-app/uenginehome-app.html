@@ -1,5 +1,5 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
-
+  <link rel="import" href="../../bower_components/polymer/polymer.html">
+  <script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
   <link rel="import" href="/bower_components/font-roboto/roboto.html">
   <link rel="import" href="/bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="/bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
@@ -11,7 +11,7 @@
   <link rel="import" href="/bower_components/app-menu/app-submenu.html">
   <link rel="import" href="/bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
   <link rel="import" href="/bower_components/app-layout/app-drawer/app-drawer.html">
-  <link rel="import" href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+
   <link rel="import" href="/bower_components/paper-item/paper-item.html">
   <link rel="import" href="/bower_components/paper-menu/paper-menu.html">
   <link rel="import" href="/bower_components/iron-pages/iron-pages.html">
@@ -19,6 +19,7 @@
   <link rel="import" href="/bower_components/app-layout/app-header-layout/app-header-layout.html">
   <link rel="import" href="/bower_components/app-layout/app-toolbar/app-toolbar.html">
   <link rel="import" href="/bower_components/app-layout/demo/sample-content.html">
+  <link rel="import" href="/bower_components/app-layout/app-scroll-effects/effects/waterfall.html">
   <link rel="import" href="/bower_components/app-layout/app-scrollpos-control/app-scrollpos-control.html">
   <link rel="import" href="/bower_components/marked-element/marked-element.html">
 
@@ -99,18 +100,21 @@
                 
                 }
               </style>
-              <iron-image  sizing="contain" id="example-sizing-contain" alt="uEngine Logo." src="/Image/uengine-logo.png"></iron-image>
+              <iron-image  sizing="contain" id="example-sizing-contain" alt="uEngine Logo." src="/Image/Org.png"></iron-image>
             </app-toolbar>
           </app-header>
 
         <app-menu selected="{{page}}" class= "menu-content">
-          <paper-button class="app-menu-item" href="#">
+
+          <!--main menu: Home  -->
+         <paper-button class="app-menu-item" href="#">
             <div>
               <iron-icon class="app-menu-icon" icon="icons:chrome-reader-mode"></iron-icon>
               <span> Home </span>
             </div>
           </paper-button>
 
+          <!--main menu: About uEngine  -->
           <app-submenu icon="icons:account-balance" name="About uEngine">
             <app-menu selected="{{subpage}}">
               <a class="app-menu-item">
@@ -135,6 +139,7 @@
 
           </app-submenu>
 
+          <!--main menu: Products  -->
           <a class="app-menu-item" href="#">
             <div>
               <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
@@ -142,60 +147,64 @@
             </div>
           </a>
 
+          <!--main menu: Case Studies  -->
           <a class="app-menu-item" href="#">
             <div>
               <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
               <span> Case Studies </span>
             </div>
           </a>
-
+     
+          <!--main menu: Library -->
           <app-submenu icon="icons:description" name="Library">
-            <app-menu>
+            <app-menu selected="{{subpage2}}">
               <a class="app-menu-item">
-                <span>John</span>
+                <span>Tutorial Video</span>
               </a>
-              <a class="app-menu-item">
-                <span>Harry</span>
+              <a href="https://www.slideshare.net/pongsor/bpm-v-354" class="app-menu-item">
+                <span>uEngine User's Guide</span>
               </a>
-            </app-menu>
-          </app-submenu>
-
-
-          <app-submenu icon="icons:perm-identity" name="Community">
-            <app-menu>
-              <a class="app-menu-item">
-                <span>John</span>
+              <a href="https://www.slideshare.net/pongsor/u-engine-v30" class="app-menu-item">
+                <span>uEngine Developer's Guide</span>
               </a>
-              <a class="app-menu-item">
-                <span>Harry</span>
+              <a href="http://www.uengine.org:8088/wiki/index.php/%EB%8C%80%EB%AC%B8" target="_blank" class="app-menu-item">
+                <span>Wiki</span>
               </a>
-            </app-menu>
-          </app-submenu>
-
-          <app-submenu icon="icons:event" name="Event">
-            <app-menu>
-              <a class="app-menu-item">
-                <span>John</span>
+              <a href="http://uengine.org/opengraph-docs/index.html" target="_blank" class="app-menu-item">
+                <span>OpenGraph API</span>
               </a>
-              <a class="app-menu-item">
-                <span>Harry</span>
+              <a href="http://uengine.org/metaworks3-docs/index.html" target="_blank" class="app-menu-item">
+                <span>Metaworks3 API</span>
               </a>
             </app-menu>
           </app-submenu>
 
-           <app-submenu icon="icons:view-module" name="Services">
-            <app-menu>
-              <a class="app-menu-item">
-                <span>John</span>
-              </a>
-              <a class="app-menu-item">
-                <span>Harry</span>
-              </a>
-            </app-menu>
-          </app-submenu>
+          <!--main menu: community  -->
+          <a class="app-menu-item" href="#">
+            <div>
+              <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
+              <span> community </span>
+            </div>
+          </a>
+
+          <!--main menu: Event  -->
+          <a class="app-menu-item" href="#">
+            <div>
+              <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
+              <span> Event </span>
+            </div>
+          </a>
+
+          <!--main menu: Service  -->
+          <a class="app-menu-item" href="#">
+            <div>
+              <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
+              <span> Service </span>
+            </div>
+          </a>
 
 
-
+       
           </app-menu>
       </app-drawer>
 
@@ -213,44 +222,46 @@
         </app-header>
 
         <div id = "body-content" >
-          <iron-pages class="body-content-subordinate" selected="{{page}}">
-
-
+        <!-- main menu -->
+           <iron-pages class="body-content-subordinate" selected="{{page}}">
             <uengine-home></uengine-home>
-            <uengine-about></uengine-about>
-            <uengine-about-opensource></uengine-about-opensource>
+            <br>
+            <br>
             <uengine-case-studies></uengine-case-studies>
-            <youtube-box></youtube-box>
-            <marked-element>
-              <div class="markdown-html"></div>
-              <script type="text/markdown">
-- 첫번째 메뉴
+            <br>
+            <br>
+            <br>
+            <br>
 
-```
-This is contents
-```
-              </script>
+            </iron-pages>
+                <!-- About uEngine subpage -->
+                <iron-pages class="body-content-subordinate-sub" selected="{{subpage}}">
+                   <uengine-about-opensource></uengine-about-opensource>
+                    <uengine-about-bpm></uengine-about-bpm>
+                     <uengine-about-architecture></uengine-about-architecture>
+                      <uengine-about-functionality></uengine-about-functionality>
+                       <uengine-about-license></uengine-about-license>
+                        <br>
+                </iron-pages>
 
-            </marked-element>
+                <!-- Library subpage -->
+                <iron-pages class="body-content-subordinate-sub" selected="{{subpage2}}">
+                 <youtube-box></youtube-box>
+                  <br>
+                  <br>
+                    <uengine-home></uengine-home>
+                    <uengine-home></uengine-home>
+                       <uengine-home></uengine-home>
+              </iron-pages>
 
 
-
-
-          </iron-pages>
-
-          <iron-pages class="body-content-subordinate-sub" selected="{{subpage}}">
-             <uengine-about-opensource></uengine-about-opensource>
-              <uengine-about-bpm></uengine-about-bpm>
-               <uengine-about-architecture></uengine-about-architecture>
-                <uengine-about-functionality></uengine-about-functionality>
-                 <uengine-about-license></uengine-about-license>
-                  <uengine-about-opensource></uengine-about-opensource>
-          </iron-pages>
         </div>
       </app-header-layout>
     </app-drawer-layout>
 
     <app-scrollpos-control selected="{{page}}"></app-scrollpos-control>
+       <app-scrollpos-control selected="{{subpage}}"></app-scrollpos-control>
+          <app-scrollpos-control selected="{{subpage2}}"></app-scrollpos-control>
      </template>
 
   <script>
