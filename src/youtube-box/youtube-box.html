@@ -1,3 +1,4 @@
+
 <link rel="import" href="../youtube-element/youtube-element.html">
 <link rel="import" href="../youtube-element1/youtube-element1.html">
 <link rel="import" href="../youtube-element2/youtube-element2.html">
@@ -45,7 +46,7 @@
     <template id="page-template">
       <style is="custom-style">
         .paper-card-0-header {
-          font-size: 12px;
+          font-size: 15px;
         }
       </style>
         <paper-card heading="BPM의 개념" image="/image/youtube.png" alt="House" class="black" style="margin:8px;" raise onclick="modal0.open()">
@@ -276,7 +277,18 @@
 </dom-module>
   <script>
     Polymer({
-      is: 'youtube-box'
+      is: 'youtube-box',
+      properties:{
+      videoId: String,
+      },
+
+
+
+    videoOn: function(e){
+        var paperCard = e.currentTarget.getAttribute('videoId');
+        alert(paperCard);
+        this.videoId = paperCard;
+    }
     });
 
   </script>

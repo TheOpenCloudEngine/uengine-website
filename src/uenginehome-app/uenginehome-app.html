@@ -23,14 +23,14 @@
 
 
   <style is="custom-style" include="demo-pages-shared-styles">
-  :host {
-        display: block;
-      }
-   :root {
-    --app-menu-color: #616161;
-    --primary-color: #F62A5A;
-    --app-menu-selected-bg-color: rgba(0, 0, 0, 0.05);
-  }
+   :host {
+          display: block;
+        }
+     :root {
+      --app-menu-color: #616161;
+      --primary-color: #F62A5A;
+      --app-menu-selected-bg-color: rgba(0, 0, 0, 0.05);
+    }
 
     #body-content {
       margin: 0;
@@ -48,7 +48,7 @@
     }
 
     .blueHeader {
-      background-color: #eaebeb;
+      background-color: #979A9A;
       color: #fff;
     }
 
@@ -64,6 +64,7 @@
     .iconItem {
       color: ##979A9A;
     }
+
 
     .flex-horizontal-with-ratios {
       @apply(--layout-horizontal);
@@ -83,34 +84,11 @@
       position: fixed;
     }
 
-      .nav {
-      height: 64px;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-       background-color: #eaebeb;
-    }
 
-    .nav li {
-      display: inline-block;
-      list-style: none;
-    }
-
-    .nav a {
-      display: inline-block;
-      font-weight: 12px;
-      line-height: 64px;
-      text-decoration: none;
-      color: black;
-      font-weight: 300;
-      margin: 0 10px;
-    }
 
     #rightContent{
 
-    margin-left: 40px;
-    margin-right: 0px;
-    margin-top: 40px;
+   
 
 
     }
@@ -119,47 +97,201 @@
 
 
   </style>
-
+   <app-drawer-layout >
       
-        <app-header class="blueHeader" condenses reveals effects="waterfall">
-
+        <app-drawer swipe-open>
+        <app-header-layout has-scrolling-region class= "menu-content">
+          <app-header class= "menu-content" waterfall fixed>
+            <app-toolbar>
               <style is="custom-style">
                 #example-sizing-contain {
                 width: 165px;
                 height: 50px;
-                padding-top: 20px;  
-                background-color: #eaebeb;              
+                display: block;
+                
                 }
               </style>
-             
-           
-           <app-box threshold="64">
-           
-          
-
-                <ul role="navigation" class="nav">
-                 <iron-image  sizing="contain" id="example-sizing-contain" alt="uEngine Logo." src="/Image/title.svg"></iron-image>
-                <app-menu selected="{{page}}" class= "menu-content" >
-                  <li><a on-tap="defaultpage">Home</a></li>
-                  <li><a on-tap="dufaultSubpageAboutUengine">About uEngine</a></li>
-                  <li><a on-tap="defaultpage">Products</a></li>
-                  <li><a on-tap="defaultpage">Case Studies</a></li>
-                  <li><a on-tap="dufaultSubpageLibrary">Library</a></li>
-                  <li><a on-tap="defaultpage">Community</a></li>
-                  <li><a on-tap="defaultpage">Event</a></li>
-                  <li><a on-tap="defaultpage">Service</a></li>
-                  </app-menu>
-                </ul>
-              </app-box>
-          <app-toolbar>
-            
-                <div main-title></div>
-
-                
+              <iron-image  sizing="contain" id="example-sizing-contain" alt="uEngine Logo." src="/Image/Org.png"></iron-image>
             </app-toolbar>
-      
+          </app-header>
+
+        <app-menu selected="{{page}}" class= "menu-content" >
+
+          <!--main menu: Home  -->
+         <paper-button class="app-menu-item" href="#" on-tap="defaultpage">
+            <div id="menu-icon">
+              <iron-icon class="app-menu-icon" icon="icons:chrome-reader-mode"></iron-icon>
+              <span> Home </span>
+            </div>
+          </paper-button>
+
+           <!--main menu: About uEngine  -->
+
+          <paper-button class="app-menu-item" href="#" on-tap="dufaultSubpageAboutUengine" >
+            <div>
+              <iron-icon class="app-menu-icon" icon="icons:account-balance"></iron-icon>
+              <span> About uEngine </span>
+            </div>
+          </paper-button>
+
+          <!--main menu: Products  -->
+          <a class="app-menu-item" href="#" on-tap="defaultpage">
+            <div>
+              <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
+              <span> Products </span>
+            </div>
+          </a>
+
+          <!--main menu: Case Studies  -->
+          <a class="app-menu-item" href="#" on-tap="defaultpage">
+            <div>
+              <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
+              <span> Case Studies </span>
+            </div>
+          </a>
+     
+          <!--main menu: Library -->
+
+          <a class="app-menu-item" href="#" on-tap="dufaultSubpageLibrary">
+            <div>
+              <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
+              <span> Library </span>
+            </div>
+          </a>
+          
+          <!--main menu: community  -->
+          <a class="app-menu-item" href="#" on-tap="defaultpage">
+            <div>
+              <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
+              <span> Community </span>
+            </div>
+          </a>
+
+          <!--main menu: Event  -->
+          <a class="app-menu-item" href="#" on-tap="defaultpage">
+            <div>
+              <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
+              <span> Event </span>
+            </div>
+          </a>
+
+          <!--main menu: Service  -->
+          <a class="app-menu-item" href="#" on-tap="defaultpage">
+            <div>
+              <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
+              <span> Service </span>
+            </div>
+          </a>
+
+
+       
+            </app-menu>
+          </app-header-layout>
+      </app-drawer>
+
+      <app-header class="blueHeader" condenses reveals effects="waterfall">
+         <iron-pages class="Header-menu-title" selected="{{page}}">
+         <div>
+           <app-toolbar>
+              <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+              <div main-title></div>
+              <paper-icon-button icon="search"></paper-icon-button>
+              <paper-icon-button icon="more-vert"></paper-icon-button>
+          </app-toolbar>
+          <app-toolbar>
+            <div spacer main-title>Home</div>
+          </app-toolbar>
+          </div>
+
+          <div>
+          <app-toolbar>
+              <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+              <div main-title></div>
+              <paper-icon-button icon="search"></paper-icon-button>
+              <paper-icon-button icon="more-vert"></paper-icon-button>
+          </app-toolbar>
+          <app-toolbar>
+            <div spacer main-title>About-uEngine</div>
+          </app-toolbar>
+          </div>
+          
+          <div>
+          <app-toolbar>
+              <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+              <div main-title></div>
+              <paper-icon-button icon="search"></paper-icon-button>
+              <paper-icon-button icon="more-vert"></paper-icon-button>
+          </app-toolbar>
+          <app-toolbar>
+            <div spacer main-title>Products</div>
+          </app-toolbar>
+          </div>
+
+          <div>
+          <app-toolbar>
+              <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+              <div main-title></div>
+              <paper-icon-button icon="search"></paper-icon-button>
+              <paper-icon-button icon="more-vert"></paper-icon-button>
+          </app-toolbar>
+          <app-toolbar>
+            <div spacer main-title>Case-Studies</div>
+          </app-toolbar>
+          </div>
+
+          <div>
+          <app-toolbar>
+              <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+              <div main-title></div>
+              <paper-icon-button icon="search"></paper-icon-button>
+              <paper-icon-button icon="more-vert"></paper-icon-button>
+          </app-toolbar>
+          <app-toolbar>
+            <div spacer main-title>Library</div>
+          </app-toolbar>
+          </div>
+
+          <div>
+          <app-toolbar>
+              <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+              <div main-title></div>
+              <paper-icon-button icon="search"></paper-icon-button>
+              <paper-icon-button icon="more-vert"></paper-icon-button>
+          </app-toolbar>
+          <app-toolbar>
+            <div spacer main-title>Community</div>
+          </app-toolbar>
+          </div>
+
+          <div>
+          <app-toolbar>
+              <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+              <div main-title></div>
+              <paper-icon-button icon="search"></paper-icon-button>
+              <paper-icon-button icon="more-vert"></paper-icon-button>
+          </app-toolbar>
+          <app-toolbar>
+            <div spacer main-title>Event</div>
+          </app-toolbar>
+          </div>
+
+          <div>
+          <app-toolbar>
+              <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+              <div main-title></div>
+              <paper-icon-button icon="search"></paper-icon-button>
+              <paper-icon-button icon="more-vert"></paper-icon-button>
+          </app-toolbar>
+          <app-toolbar>
+            <div spacer main-title>Service</div>
+          </app-toolbar>
+          </div>
+        </iron-pages>
            
         </app-header>
+
+
+
         <!-- body -->
         <div id="rightContent">
         <div id = "body-content" class="container flex-horizontal-with-ratios">
@@ -211,7 +343,7 @@
 
               </div>
 
-              <div class="flex2child">
+              <div class$="{{flexsize}}">
               <iron-pages class="" selected="{{page}}">
                 <br>
                 <app-menu class="submenu-about-uengine" >
@@ -263,7 +395,7 @@
               </div>
               </div>
             </div>
-
+    </app-drawer-layout> 
 
     <app-scrollpos-control selected="{{page}}"></app-scrollpos-control>
        <app-scrollpos-control selected="{{subpage}}"></app-scrollpos-control>
@@ -287,12 +419,15 @@
         },
         subpage2: String,
 
+        flexsize: String
+
 
 
       },
 
 
       defaultpage: function(){
+       this.flexsize = null;
        this.subpage = null;
        this.subpage2 = null;
       },
@@ -300,11 +435,13 @@
       dufaultSubpageAboutUengine: function(){
         this.subpage = null;
         this.subpage2 = null;
+        this.flexsize = "flex2child";
       },
 
       dufaultSubpageLibrary: function(){
         this.subpage = null;
         this.subpage2 = 0;
+        this.flexsize = "flex2child";
       },
       
     
