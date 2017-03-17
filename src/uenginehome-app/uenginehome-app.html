@@ -1,7 +1,4 @@
 
-
-
-
   <!-- menu  -->
   <link rel="import" href="../uengine-home/uengine-home.html">
   <link rel="import" href="../uengine-about/uengine-about.html">
@@ -14,9 +11,6 @@
   <link rel="import" href="../uengine-case-studies/uengine-case-studies.html">
   <link rel="import" href="../youtube-box/youtube-box.html">
   <link rel="import" href="/Image/uengine.html">
-
-
-
 
 
 <dom-module id="uenginehome-app">
@@ -51,6 +45,7 @@
     .blueHeader {
       background-color: #3b78e7;
       color: #fff;
+
     }
 
     .blueHeader paper-icon-button {
@@ -89,14 +84,24 @@
 
 
     #uengine-about-content{
-
-    margin-left: 20px;
-    margin-right: 25px;
+    margin-top: 7%;
+    margin-left: 8%;
+    margin-right: 9%;
+    margin-bottom: 5%;
 
     }
     .right-menu-color{
        background-color: #E8F8F5;
        color: #ffffff;
+    }
+
+    .headtitletext{
+       font-size: 56px;
+       margin-bottom: 10px;
+       margin-left: 8%;
+    }
+    .headtitle{
+      margin-bottom: 4%;
     }
 
 
@@ -124,16 +129,16 @@
         <app-menu selected="{{page}}" class= "menu-content" >
 
           <!--main menu: Home  -->
-         <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Home">
+         <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Home"  head-background-color="#3b78e7" isflex2child="false">
             <div id="menu-icon">
-              <iron-icon class="app-menu-icon" icon="icons:chrome-reader-mode"></iron-icon>
+              <iron-icon class="app-menu-icon" icon="icons:chrome-reader-mode" ></iron-icon>
               <span> Home </span>
             </div>
           </paper-button>
 
            <!--main menu: About uEngine  -->
 
-          <paper-button class="app-menu-item" href="#" on-tap="dufaultSubpageAboutUengine" heading="About uEngine">
+          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="About uEngine" head-background-color="#8e24aa" isflex2child="true">
             <div>
               <iron-icon class="app-menu-icon" icon="icons:account-balance"></iron-icon>
               <span> About uEngine </span>
@@ -141,7 +146,7 @@
           </paper-button>
 
           <!--main menu: Products  -->
-          <a class="app-menu-item" href="#" on-tap="defaultpage" heading="Products">
+          <a class="app-menu-item" href="#" on-tap="defaultpage" heading="Products" head-background-color="#00897b" isflex2child="false">
             <div>
               <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
               <span> Products </span>
@@ -149,7 +154,7 @@
           </a>
 
           <!--main menu: Case Studies  -->
-          <a class="app-menu-item" href="#" on-tap="defaultpage" heading="Case Studies">
+          <a class="app-menu-item" href="#" on-tap="defaultpage" heading="Case Studies" head-background-color="#ad1457" isflex2child="false">
             <div>
               <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
               <span> Case Studies </span>
@@ -158,7 +163,7 @@
      
           <!--main menu: Library -->
 
-          <a class="app-menu-item" href="#" on-tap="dufaultSubpageLibrary" heading="Library">
+          <a class="app-menu-item" href="#" on-tap="defaultpage" heading="Library" head-background-color="#3949ab" isflex2child="true">
             <div>
               <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
               <span> Library </span>
@@ -166,7 +171,7 @@
           </a>
           
           <!--main menu: community  -->
-          <a class="app-menu-item" href="#" on-tap="defaultpage" heading="Community">
+          <a class="app-menu-item" href="#" on-tap="defaultpage" heading="Community" head-background-color="#fb8c00" isflex2child="false">
             <div>
               <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
               <span> Community </span>
@@ -174,7 +179,7 @@
           </a>
 
           <!--main menu: Event  -->
-          <a class="app-menu-item" href="#" on-tap="defaultpage" heading="Event">
+          <a class="app-menu-item" href="#" on-tap="defaultpage" heading="Event" head-background-color="#039be5" isflex2child="false">
             <div>
               <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
               <span> Event </span>
@@ -182,7 +187,7 @@
           </a>
 
           <!--main menu: Service  -->
-          <a class="app-menu-item" href="#" on-tap="defaultpage" heading="Service">
+          <a class="app-menu-item" href="#" on-tap="defaultpage" heading="Service" head-background-color="#039be5" isflex2child="false">
             <div>
               <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
               <span> Service </span>
@@ -195,16 +200,17 @@
           </app-header-layout>
       </app-drawer>
 
-      <app-header class="blueHeader" condenses reveals effects="waterfall">
-         <div>
+      <app-header id="appHeader" class="blueHeader" condenses reveals effects="waterfall">
+         <div class="headtitle">
            <app-toolbar>
               <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
               <div main-title></div>
-              <paper-icon-button icon="search"></paper-icon-button>
-              <paper-icon-button icon="more-vert"></paper-icon-button>
+
           </app-toolbar>
           <app-toolbar>
-            <div spacer main-title>{{heading}}</div>
+          </app-toolbar>
+          <app-toolbar>
+            <div class="headtitletext" spacer main-title>{{heading}}</div>
           </app-toolbar>
           </div>   
         </app-header>
@@ -237,27 +243,14 @@
             </div>
             <uengine-products></uengine-products>
             <uengine-case-studies></uengine-case-studies>
-            <br>
+            <youtube-box></youtube-box>
             <br>
             <br>
             <br>
 
             </iron-pages>
                 <!-- About uEngine subpage -->
-                <iron-pages class="body-content-subordinate" selected="{{subpage}}">
-                  
-                </iron-pages>
-
-                <!-- Library subpage -->
-                <iron-pages class="body-content-subordinate" selected="{{subpage2}}">
-                 <youtube-box></youtube-box>                  
-                  <br>                  
-                  <br>                  
-                  <uengine-home></uengine-home>
-                  <uengine-home></uengine-home>
-                  <uengine-home></uengine-home>
-
-              </iron-pages>
+              
 
 
               </div>
@@ -266,44 +259,44 @@
               <iron-pages class="" selected="{{page}}">
                 <br>
                 <app-menu class="submenu-about-uengine right-menu-color" >
-                  <a class="app-menu-item" href="#opensource">
+                  <a class="app-menu-item mainFont" href="#opensource">
                     <span> OpenSource </span>
                   </a>
-                  <a class="app-menu-item" href="#bpm">
+                  <a class="app-menu-item mainFont" href="#bpm">
                     <span> BPM </span>
                   </a>
-                  <a class="app-menu-item" href="#architecture">
+                  <a class="app-menu-item mainFont" href="#architecture">
                     <span> Architecture </span>
                   </a>
-                  <a class="app-menu-item" href="#functionality">
+                  <a class="app-menu-item mainFont" href="#functionality">
                     <span> Functionality </span>
                   </a>
-                  <a class="app-menu-item" href="#license">
+                  <a class="app-menu-item mainFont" href="#license">
                     <span> License </span>
                   </a>
-                  <a class="app-menu-item" href="#recruit">
+                  <a class="app-menu-item mainFont" href="#recruit">
                     <span> Recruit </span>
                   </a>
               </app-menu>
               <br>
               <br>
               <app-menu class="submenu-about-uengine right-menu-color" >
-                  <a class="app-menu-item">
+                  <a class="app-menu-item mainFont">
                     <span>Tutorial Video</span>
                   </a>
-                  <a href="https://www.slideshare.net/pongsor/bpm-v-354" class="app-menu-item">
+                  <a href="https://www.slideshare.net/pongsor/bpm-v-354" class="app-menu-item mainFont">
                     <span>uEngine User's Guide</span>
                   </a>
-                  <a href="https://www.slideshare.net/pongsor/u-engine-v30" class="app-menu-item">
+                  <a href="https://www.slideshare.net/pongsor/u-engine-v30" class="app-menu-item mainFont">
                     <span>uEngine Developer's Guide</span>
                   </a>
-                  <a href="http://www.uengine.org:8088/wiki/index.php/%EB%8C%80%EB%AC%B8" target="_blank" class="app-menu-item">
+                  <a href="http://www.uengine.org:8088/wiki/index.php/%EB%8C%80%EB%AC%B8" target="_blank" class="app-menu-item mainFont">
                     <span>Wiki</span>
                   </a>
-                  <a href="http://uengine.org/opengraph-docs/index.html" target="_blank" class="app-menu-item">
+                  <a href="http://uengine.org/opengraph-docs/index.html" target="_blank" class="app-menu-item mainFont">
                     <span>OpenGraph API</span>
                   </a>
-                  <a href="http://uengine.org/metaworks3-docs/index.html" target="_blank" class="app-menu-item">
+                  <a href="http://uengine.org/metaworks3-docs/index.html" target="_blank" class="app-menu-item mainFont">
                     <span>Metaworks3 API</span>
                   </a>
               </app-menu>
@@ -333,45 +326,49 @@
           type: String,
           value: 0
         },
-        subpage:{
-          type: String,
-        },
-        subpage2: String,
 
         flexsize: String,
         heading:{
           type: String,
           value: "Home"
-        } 
-
-
+        },
+        headBackgroundColor:{
+          type: String,
+          value: "#3b78e7"
+        },
+        mainTextColor:{
+          type: String,
+          value: "#000016"
+        }
 
       },
 
 
       defaultpage: function(e){
+       var headingBackgroundColor = e.currentTarget.getAttribute('head-background-color');
+       document.getElementById('appHeader').style.backgroundColor = headingBackgroundColor;
+       mainTextColor = headingBackgroundColor;
+       this.mainFontTotalChange(mainTextColor);
        var headingResult = e.currentTarget.getAttribute('heading');
        this.heading = headingResult;
-       this.subpage = null;
-       this.subpage2 = null;
-       this.flexsize = null;
+
+
+       var isflex2childValue = e.currentTarget.getAttribute('isflex2child');
+       if(isflex2childValue == "true"){
+        this.flexsize = "flex2child";
+       }else{
+         this.flexsize = null;
+       }
+       
       },
 
-      dufaultSubpageAboutUengine: function(e){
-        var headingResult = e.currentTarget.getAttribute('heading');
-        this.heading = headingResult;
-        this.subpage = null;
-        this.subpage2 = null;
-        this.flexsize = "flex2child";
-      },
-
-      dufaultSubpageLibrary: function(e){
-        var headingResult = e.currentTarget.getAttribute('heading');
-        this.heading = headingResult;
-        this.subpage = null;
-        this.subpage2 = 0;
-        this.flexsize = "flex2child";
-      },
+        mainFontTotalChange:function(changeColor){
+        var allFont = document.getElementsByClassName("mainFont");
+        for(i =0; i< allFont.length; i++){
+          allFont[i].style.color = changeColor;
+        }
+        
+        },
       
     
 
