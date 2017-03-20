@@ -35,7 +35,7 @@ p.weight4 {
 	 font-weight: 700;
 	 font-style: normal;
 	 font-size: 36px;
-	 line-height: 30px;
+	 line-height: 110%
 }
 
 div.wrapper {
@@ -53,8 +53,8 @@ div.wrapper {
 
 h1 {
 	 font-size: 64px;
-	 line-height: 73px;
 	 margin-bottom: 25px;
+	 line-height: 110%
 }
 
 p {
