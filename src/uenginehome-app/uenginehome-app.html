@@ -11,9 +11,11 @@
   <link rel="import" href="../uengine-head-image/uengine-head-image.html">
   <link rel="import" href="../uengine-home/uengine-home.html">
   <link rel="import" href="../uengine-products/uengine-products.html">
-
+  <link rel="import" href="../uengine-about/uengine-about-license.html">
   <link rel="import" href="../youtube-box/youtube-box.html">
   <link rel="import" href="/Image/uengine.html">
+
+  <link rel="import" href="../test/test.html">
 
 
 <dom-module id="uenginehome-app">
@@ -93,7 +95,23 @@
       position: fixed;
     }
 
-
+    .selectable-content > ::content .app-menu-item-sub, .app-menu-item-sub {
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--app-menu-color, --primary-text-color);
+      transition: color 0.4s ease-out;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 24px;
+      min-height: 48px;
+      padding: 0 24px;
+    }
 
 
     #uengine-about-content{
@@ -163,26 +181,26 @@
             </paper-button>
             <paper-menu class="menu-content sublist">
               <paper-submenu label="BPM Products" >
-                <paper-item class="menu-trigger app-menu-item">BPM Products</paper-item>
+                <paper-item class="menu-trigger app-menu-item-sub">BPM Products</paper-item>
                 <paper-menu class="menu-content sublist2">
-                  <paper-item class="app-menu-item">uEngine BPM</paper-item>
-                  <paper-item class="app-menu-item">Essencia</paper-item>
-                  <paper-item class="app-menu-item">SNS</paper-item>
+                  <paper-item class="app-menu-item-sub" style="padding-left: 50px">uEngine BPM</paper-item>
+                  <paper-item class="app-menu-item-sub" style="padding-left: 50px">Essencia</paper-item>
+                  <paper-item class="app-menu-item-sub" style="padding-left: 50px">SNS</paper-item>
                 </paper-menu>
               </paper-submenu>
                 <paper-submenu label="Cloud Platform">
-                  <paper-item class="menu-trigger app-menu-item">Cloud Platform</paper-item>
+                  <paper-item class="menu-trigger app-menu-item-sub">Cloud Platform</paper-item>
                   <paper-menu class="menu-content sublist2">
-                    <paper-item class="app-menu-item">Garuda PaaS</paper-item>
-                    <paper-item class="app-menu-item">uEngine Billing</paper-item>
-                    <paper-item class="app-menu-item">IAM/API Gateway</paper-item>
+                    <paper-item class="app-menu-item-sub" style="padding-left: 50px">Garuda PaaS</paper-item>
+                    <paper-item class="app-menu-item-sub" style="padding-left: 50px">uEngine Billing</paper-item>
+                    <paper-item cclass="app-menu-item-sub" style="padding-left: 50px">IAM/API Gateway</paper-item>
                   </paper-menu>
               </paper-submenu>
               <paper-submenu label="Libraries and Frameworks">
-                <paper-item class="menu-trigger app-menu-item">Libraries and Frameworks</paper-item>
+                <paper-item class="menu-trigger app-menu-item-sub">Libraries and Frameworks</paper-item>
                 <paper-menu class="menu-content sublist2">
-                  <paper-item class="app-menu-item">Open Graph</paper-item>
-                  <paper-item class="app-menu-item">Metaworks</paper-item>
+                  <paper-item class="app-menu-item-sub" style="padding-left: 50px">Open Graph</paper-item>
+                  <paper-item class="app-menu-item-sub" style="padding-left: 50px">Metaworks</paper-item>
                 </paper-menu>
               </paper-submenu>
             </paper-menu>
@@ -224,16 +242,16 @@
 
           <!--main menu: community  -->
         </app-menu>
-      <app-menu style="padding-top: 0px;">
-        <a href="https://www.github.com/theopencloudengine" target="_blank" style="text-decoration:none">
-          <paper-button class="app-menu-item">
-            <div>
-                <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
-                <span> Community </span>
-            </div>
-          </paper-button>
-        </a>
-      </app-menu>
+        <app-menu style="padding-top: 0px;">
+          <a href="https://www.github.com/theopencloudengine" target="_blank" style="text-decoration:none" >
+            <paper-button class="app-menu-item">
+              <div>
+                  <iron-icon icon="icons:account-box" style="padding-right: 15px;"></iron-icon>
+                  <span> Community </span>
+              </div>
+            </paper-button>
+          </a>
+        </app-menu>
           </app-header-layout>
 
 
@@ -268,9 +286,9 @@
            <iron-pages class="body-content-subordinate" selected="{{page}}">
             <uengine-home></uengine-home>
             <uengine-products></uengine-products>
-            <uengine-case-studies></uengine-case-studies>
+            <uengine-about-license></uengine-about-license>
             <youtube-box></youtube-box>
-            <br>
+            <test></test>
             <br>
           </iron-pages>
         </div>
