@@ -12,22 +12,25 @@
         background-size: contain;
       }
 
+      .paper-datatable-column {
+        font-size: 14px;
+      }
 
     </style>
     <br>
 
     <p class="intro mainFont">uEngine Open Source License : LGPL</p>
     <br>
-    <div style="text-align: center" >
-      <paper-card heading="주요 오픈소스SW 라이선스 비교" id="test2">
-        <paper-datatable data={{function(data)}} id="test1">
-          <paper-datatable-column header="라이선스 명" property="title" type="String"></paper-datatable-column>
-          <paper-datatable-column header="무료 이용가능" property="free" type="String"></paper-datatable-column>
-          <paper-datatable-column header="배포 허용가능" property="shared" type="String"></paper-datatable-column>
-          <paper-datatable-column header="소스코드 취득가능" property="get" type="String"></paper-datatable-column>
-          <paper-datatable-column header="소스코드 수정가능" property="overwrite" type="String"></paper-datatable-column>
-          <paper-datatable-column header="2차적 저작물 재공개 의무" property="reopen" type="String"></paper-datatable-column>
-          <paper-datatable-column header="독점SW와 결합가능" property="combine" type="String"></paper-datatable-column>
+    <div style="text-align: center">
+      <paper-card heading="주요 오픈소스SW 라이선스 비교">
+        <paper-datatable data=[[data]]>
+          <paper-datatable-column align="center" header="라이선스 명" property="title" type="String"></paper-datatable-column>
+          <paper-datatable-column align="center" header="무료 이용가능" property="free" type="String"></paper-datatable-column>
+          <paper-datatable-column align="center" header="배포 허용가능" property="shared" type="String"></paper-datatable-column>
+          <paper-datatable-column align="center" header="소스코드 취득가능" property="get" type="String"></paper-datatable-column>
+          <paper-datatable-column align="center" header="소스코드 수정가능" property="overwrite" type="String"></paper-datatable-column>
+          <paper-datatable-column align="center" header="2차적 저작물 재공개 의무" property="reopen" type="String"></paper-datatable-column>
+          <paper-datatable-column align="center" header="독점SW와 결합가능" property="combine" type="String"></paper-datatable-column>
         </paper-datatable>
       </paper-card>
     </div>
@@ -65,23 +68,16 @@
       is: 'uengine-about-license',
       properties:{
        data: {
-         type:  Object
+         type:  Array,
+         value: [{id: 0, title: 'GPL', free: 'O', shared: 'O', get: 'O', overwrite: 'O', reopen: 'O', combine:'X'},
+                 {id: 1, title: 'LGPL', free: 'O', shared: 'O', get: 'O', overwrite: 'O', reopen: 'O', combine:'O'},
+                 {id: 2, title: 'MPL', free: 'O', shared: 'O', get: 'O', overwrite: 'O', reopen: 'O', combine:'O'},
+                 {id: 3, title: 'BSD License', free: 'O', shared: 'O', get: 'O', overwrite: 'O', reopen: 'X', combine:'O'},
+                 {id: 4, title: 'Apache license', free: 'O', shared: 'O', get: 'O', overwrite: 'O', reopen: 'X', combine:'O'},
+       ]
+
        }
-
       },
-
-      setData:function(data) {
-        var app = document.querySelector('#uengine-about-license');
-        app.data = [
-        {id: 0, title: 'Frozen yogurt', free: '159', shared: '6', get: '24', overwrite: '4', reopen: '87', combine:'.14'},
-        ];
-        app.toFixedOne = function(value){
-          return value.toFixed(1);
-        };
-        app.toPercentage = function(value){
-          return Math.round(value * 10000)/100 + '%';
-        };
-      }
     });
   </script>
 

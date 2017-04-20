@@ -1,5 +1,5 @@
 body {
-	
+
 	 font-size: 13px;
 	 font-family: "Lora";
 	 font-style: normal;
@@ -60,7 +60,7 @@ h1 {
 p {
 	 font-size: 17px;
 	 line-height: 26px;
-	
+
 }
 p.mini{
 	font-size: 13px;
@@ -153,7 +153,7 @@ p.inverse-heading {
 	 padding-bottom: 0px;
 	 font-size: 15px;
 	 letter-spacing: 2px;
-	
+
 }
 
 h3.pullquote {
@@ -163,4 +163,6 @@ h3.pullquote {
 	 border-width: 0px 0px 0px 3px;
 	 border-style: solid;
 }
-
+.stuck {
+	position: fixed;
+}
