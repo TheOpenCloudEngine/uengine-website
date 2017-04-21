@@ -122,7 +122,7 @@ Custom property                          | Description                          
         @apply(--layout-fit);
       }
 
-      #contentContainer {
+      #appDrawerContent {
         position: relative;
 
         height: 100%;
@@ -130,12 +130,12 @@ Custom property                          | Description                          
         transition: var(--app-drawer-layout-content-transition, none);
       }
 
-      #contentContainer:not(.narrow) > ::content [drawer-toggle] {
+      #appDrawerContent:not(.narrow) > ::content [drawer-toggle] {
         display: none;
       }
     </style>
 
-    <div id="contentContainer">
+    <div id="appDrawerContent">
       <content select=":not(app-drawer)"></content>
     </div>
 
@@ -225,19 +225,19 @@ Custom property                          | Description                          
       resetLayout: function() {
         this.debounce('_resetLayout', function() {
           var drawer = this.drawer;
-          var contentContainer = this.$.contentContainer;
+          var appDrawerContent = this.$.appDrawerContent;
 
           if (this.narrow || !drawer) {
-            contentContainer.style.marginLeft = '';
-            contentContainer.style.marginRight = '';
+            appDrawerContent.style.marginLeft = '';
+            appDrawerContent.style.marginRight = '';
           } else {
             var drawerWidth = drawer.getWidth();
             if (drawer.position == 'right') {
-              contentContainer.style.marginLeft = '';
-              contentContainer.style.marginRight = drawerWidth + 'px';
+              appDrawerContent.style.marginLeft = '';
+              appDrawerContent.style.marginRight = drawerWidth + 'px';
             } else {
-              contentContainer.style.marginLeft = drawerWidth + 'px';
-              contentContainer.style.marginRight = '';
+              appDrawerContent.style.marginLeft = drawerWidth + 'px';
+              appDrawerContent.style.marginRight = '';
             }
           }
         });
@@ -260,7 +260,7 @@ Custom property                          | Description                          
       },
 
       _narrowChanged: function(narrow) {
-        this.toggleClass('narrow', narrow, this.$.contentContainer);
+        this.toggleClass('narrow', narrow, this.$.appDrawerContent);
         this._resetDrawerState();
         this.notifyResize();
       },
