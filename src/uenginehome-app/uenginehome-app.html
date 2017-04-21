@@ -148,8 +148,8 @@
       background-color: #262B33;
     }
   </style>
-  <app-drawer-layout>
-    <app-drawer id="drawer" swipe-open class= "menuzindex main-nav" style="width: 230px;">
+  <app-drawer-layout id="paging" resetLayout>
+    <app-drawer id="drawer" swipe-open class= "menuzindex" style="width: 232px;">
       <app-header-layout id="drawer1" has-scrolling-region class= "menu-list" style="width: 232px;">
         <app-header class= "u-image">
           <app-toolbar>
@@ -259,20 +259,32 @@
       </app-header-layout>
     </app-drawer>
     <!--Navigation Bar-->
-    <script>
-      var lsmb = document.getElementById("drawer").opened
-    </script>
+
     <div class="main-nav">
       <paper-scroll-header-panel class="blueHeader title-toolbar" fixed>
         <app-toolbar>
-          <paper-icon-button class="menuButton" icon="menu" onclick="drawer.toggle()"></paper-icon-button>
+          <paper-icon-button id="menuButton" icon="menu" onclick="drawer.toggle()"></paper-icon-button>
         </app-toolbar>
       </paper-scroll-header-panel>
     </div>
+    <script>
+      $('#menuButton').click(function(){
+        var lsmb = document.getElementById("drawer").opened
+        if (lsmb == false){
+          $('div.main-nav').css('left', '0');
+          $('div#appDrawerContent').css('margin-left', '0');
+        } else {
+          setTimeout(function(){
+            $('div.main-nav').css('left', '232px');
+            $('div#appDrawerContent').css('margin-left', '232px');
+          }, 10);
+        }
+      })
+    </script>
     <!-- body -->
 
     <div id = "body-content" class="container flex-horizontal-with-ratios" style="margin: 3px">
-      <div class="flex10child" style="margin-top: 62px;">
+      <div class="flex10child" style="margin-top: 62px; positon: absolute; z-index:100;" >
         <!-- main menu -->
         <iron-pages class="body-content-subordinate" selected="{{page}}">
           <uengine-home></uengine-home>
@@ -298,7 +310,7 @@
           <br>
           <br>
         </iron-pages>
-      </div>
+
 
       <!-- About uEngine subpage -->
       <div class$="{{flexsize}}">
@@ -363,7 +375,6 @@ Polymer({
       type: String,
       value: 0
     },
-
     flexsize: String,
     heading:{
       type: String,
@@ -417,17 +428,5 @@ Polymer({
   },
 });
 </script>
-<script>
 
-    $('.menuButton').click(function(){
-      $('div.main-nav').css('left', '232px');
-      var lsmb = document.getElementById("drawer").opened
-      if (lsmb = true){
-        $('div.main-nav').css('left', '0');
-      } else {
-        $('div.main-nav').css('left', '232px');
-      }
-    })
-
-</script>
 </dom-module>
