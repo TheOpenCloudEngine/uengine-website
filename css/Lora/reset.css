@@ -49,17 +49,3 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-div.main-nav {
-    background:#fff;
-    z-index:170;
-    margin:0 auto;
-    border-bottom:1px solid #dadada;
-    width:100%;
-    position:fixed;
-    top:0;
-    left:232px;
-    right:0;
-    text-align: center;
-		box-shadow: 0 2px 3px rgba(0,0,0,.3);
-		float: left;
-}

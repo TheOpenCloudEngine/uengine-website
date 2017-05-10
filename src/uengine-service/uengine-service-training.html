@@ -1,0 +1,73 @@
+<link href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel='stylesheet' type="text/css" >
+<dom-module id="uengine-service-warranty">
+  <template id="app">
+
+
+  <style is="custom-style" include="demo-pages-shared-styles">
+
+      .image {
+        @apply(--layout-flex);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+      }
+
+      .paper-datatable-column {
+        font-size: 14px;0
+      }
+      p {
+        font-family: 'Nanum Gothic';
+      }
+    </style>
+    <br>
+<section class="warranty">
+    <p class="intro mainFont">트레이닝 서비스</p>
+    <p class="mini">uEngine에서는 uEngine BPM에 대한 기술적인 지원이나 품질에 대한 보장이 필요한 경우를 위해 Warranty 서비스를 제공합니다.</p>
+    <p class="mini">[uEngine 자체는 오픈소스로 비용 지불없이 사용 가능한 "No Warranty" 베이스 제품입니다.]</p>
+    <br>
+    <div style="text-align: center">
+      <paper-card heading="품질 보증에 대한 가격 정책">
+        <paper-datatable data=[[data]]>
+          <paper-datatable-column align="center" header="제공내역" property="subscription" type="String"></paper-datatable-column>
+          <paper-datatable-column align="center" header="스펙" property="spec" type="String"></paper-datatable-column>
+        </paper-datatable>
+      </paper-card>
+    </div>
+    <div style="text-align: center">
+      <paper-card heading="제품별 보증 서비스 정책">
+        <paper-datatable data=[[data2]]>
+          <paper-datatable-column align="center" header="제공내역" property="subscription" type="String"></paper-datatable-column>
+          <paper-datatable-column align="center" header="스펙" property="spec" type="String"></paper-datatable-column>
+        </paper-datatable>
+      </paper-card>
+    </div>
+    <p class="mini">각 제품별 보증서비스는 컨설팅 서비스 80시간과 1Yr Silver 품질보증서비스가 포함됩니다.</p>
+</section>
+   </template>
+=======================
+  <script>
+    Polymer({
+      is: 'uengine-service-warranty',
+      properties:{
+       data: {
+         type:  Array,
+         value: [{id: 0, subscription: 'Bronze', spec: '제품 기능에 대한 하자에 대한 12시간 내 응답, 100시간 이내 해결 이메일 / 원격(년간)'},
+                 {id: 1, subscription: 'Silver', spec: 'Bronze 포함 + 제품 업그레이드 지원, 월 1회 방문 점검 서비스 (년간)'},
+                 {id: 2, subscription: 'Gold', spec: 'Silver 포함 + 즉시방문서비스'},
+       ]
+
+     },
+     data2: {
+       type:  Array,
+       value: [{id: 0, subscription: 'uEngine 3.0 Foundation', spec: 'Process Modeler, Execution Engine, Monitoring, Manager, Build-in Activity Type 26종, 기본 웹 포탈'},
+               {id: 1, subscription: 'uEngine Enterprise Portal', spec: '엔터프라이즈 포탈 엔진 (Liferay 기반)'},
+               {id: 2, subscription: 'uEngine Process Analyzer', spec: 'OLAP 프로세스분석기 (Mondrian 기반)'},
+     ]
+
+     }
+      },
+    });
+  </script>
+
+
+</dom-module>
