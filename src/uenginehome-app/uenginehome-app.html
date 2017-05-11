@@ -13,9 +13,10 @@
   <link rel="import" href="../uengine-home/uengine-home.html">
   <link rel="import" href="../uengine-products/uengine-products.html">
   <link rel="import" href="../uengine-about/uengine-about-license.html">
-  <link rel="import" href="../uengine-event/uengine-event.html">
   <link rel="import" href="../youtube-box/youtube-box.html">
   <link rel="import" href="../uengine-service/uengine-service-warranty.html">
+  <link rel="import" href="../uengine-service/uengine-service-consulting.html">
+  <link rel="import" href="../uengine-service/uengine-service-training.html">
   <link rel="import" href="/Image/uengine.html">
 
 
@@ -140,8 +141,8 @@
 
 
   </style>
-   <app-drawer-layout >
-        <app-drawer swipe-open class= "menuzindex">
+   <app-drawer-layout>
+      <app-drawer class= "menuzindex">
         <app-header-layout has-scrolling-region class= "menu-content">
 <!--
           <app-header class= "menu-content" waterfall fixed>
@@ -159,11 +160,10 @@
             </app-toolbar>
           </app-header>
  -->
-
         <app-menu selected="{{page}}" class= "menu-content" style="padding-bottom: 0px;">
 
           <!--main menu: Home  -->
-         <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Welcome"  head-background-color="#3b78e7" isflex2child="false">
+         <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Welcome"  head-background-color="#3b78e7" isflex2child="false" subMenu>
             <div id="menu-icon">
               <iron-icon class="app-menu-icon" icon="icons:chrome-reader-mode" ></iron-icon>
               <span> Home </span>
@@ -172,7 +172,7 @@
 
           <!--main menu: Products  -->
 
-          <paper-submenu label="paper-submenu">
+          <paper-submenu label="paper-submenu" subMenu="true">
             <paper-button class="menu-trigger app-menu-item">
               <div>
                 <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
@@ -207,7 +207,7 @@
           </paper-submenu>
 
           <!--main menu: Case Studies  -->
-          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Case Studies" head-background-color="#ad1457" isflex2child="false">
+          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Case Studies" head-background-color="#ad1457" isflex2child="false" subMenu>
             <div>
               <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
               <span> Case Studies </span>
@@ -216,7 +216,7 @@
 
           <!--main menu: Library -->
 
-          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Library" head-background-color="#3949ab" isflex2child="true">
+          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Library" head-background-color="#3949ab" isflex2child="true" subMenu>
             <div>
               <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
               <span> Library </span>
@@ -225,7 +225,7 @@
 
 
           <!--main menu: Event  -->
-          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Event" head-background-color="#039be5" isflex2child="false">
+          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Event" head-background-color="#039be5" isflex2child="false" subMenu>
             <div>
               <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
               <span> Event </span>
@@ -233,7 +233,7 @@
           </paper-button>
 
           <!--main menu: Service  -->
-            <paper-submenu label="paper-submenu" href="#" on-tap="defaultpage" heading="Service" head-background-color="#039be5" isflex2child="false">
+            <paper-submenu label="paper-submenu" href="#" on-tap="defaultpage" heading="Service" head-background-color="#039be5" isflex2child="false" subMenu="true">
               <paper-button class="menu-trigger app-menu-item">
                 <div>
                   <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
@@ -262,19 +262,13 @@
           </a>
         </app-menu>
           </app-header-layout>
-
-
       </app-drawer>
-
       <app-header id="appHeader" class="blueHeader" condenses reveals effects="waterfall">
          <div class="headtitle">
            <app-toolbar>
               <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
               <div main-title>uEngine.org</div>
-
           </app-toolbar>
-
-
           <uengine-head-image></uengine-head-image>
           <app-toolbar>
             <div class="headtitletext" spacer main-title>{{heading}}</div>
@@ -290,11 +284,9 @@
         <!-- body -->
 
         <div>
-
-        <!-- main menu -->
            <iron-pages selected="{{page}}">
             <uengine-home></uengine-home>
-            <uengine-products></uengine-products>
+            <br>
             <uengine-products-bpms></uengine-products-bpms>
             <youtube-box></youtube-box>
             <uengine-event></uengine-event>
@@ -304,11 +296,13 @@
         <div>
           <iron-pages selected="{{bpmpage}}">
             <uengine-products-bpms><uengine-products-bpms>
-          </iron-page>
+          </iron-pages>
         </div>
         <div>
         <iron-pages selected="{{subpage3}}">
           <uengine-service-warranty></uengine-service-warranty>
+          <uengine-service-consulting></uengine-service-consulting>
+          <uengine-service-training></uengine-service-training>
         </iron-pages>
       </div>
     </app-drawer-layout>
@@ -341,8 +335,15 @@
         mainTextColor:{
           type: String,
           value: "#3b78e7"
+        },
+        subMenu:{
+          type: Boolean,
+          value: false
+        },
+        subpage3:{
+          type: String,
+          value: 0
         }
-
       },
 
 
@@ -369,14 +370,16 @@
         for(i =0; i< allFont.length; i++){
           allFont[i].style.color = changeColor;
         }
-
-
         },
         ready:function(){
          this.mainFontTotalChange(this.mainTextColor);
        },
+        subMenuSelected:function(){
+          var subMenuSelect = e.currentTarget.getAttribute('subMenu');
+          if (subMenu == "true") {
 
-
+          }
+        }
     });
   </script>
 

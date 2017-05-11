@@ -82,7 +82,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     _onClick: function(event) {
-      var target = Polymer.dom(event).rootTarget;
+      var target = event.target;
       if (target.classList.contains('circle')) {
         // configure the page animation
         this.sharedElements = {
