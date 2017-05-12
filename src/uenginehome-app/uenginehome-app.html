@@ -163,8 +163,8 @@
         <app-menu selected="{{page}}" class= "menu-content" style="padding-bottom: 0px;">
 
           <!--main menu: Home  -->
-         <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Welcome"  head-background-color="#3b78e7" isflex2child="false" subMenu>
-            <div id="menu-icon">
+         <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Welcome"  head-background-color="#3b78e7" isflex2child="false" subMenu pageName="mainmenu">
+            <div>
               <iron-icon class="app-menu-icon" icon="icons:chrome-reader-mode" ></iron-icon>
               <span> Home </span>
             </div>
@@ -233,7 +233,7 @@
           </paper-button>
 
           <!--main menu: Service  -->
-            <paper-submenu label="paper-submenu" href="#" on-tap="defaultpage" heading="Service" head-background-color="#039be5" isflex2child="false" subMenu="true">
+            <paper-submenu label="paper-submenu" href="#" on-tap="defaultpage" heading="Service" head-background-color="#039be5" isflex2child="false" subMenu="true" pageName="subpage3">
               <paper-button class="menu-trigger app-menu-item">
                 <div>
                   <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
@@ -283,7 +283,7 @@
 
         <!-- body -->
 
-        <div>
+        <div id="mainmenu">
            <iron-pages selected="{{page}}">
             <uengine-home></uengine-home>
             <br>
@@ -293,12 +293,12 @@
             <br>
           </iron-pages>
         </div>
-        <div>
+        <div id="bpmpage">
           <iron-pages selected="{{bpmpage}}">
             <uengine-products-bpms><uengine-products-bpms>
           </iron-pages>
         </div>
-        <div>
+        <div id="subpage3">
         <iron-pages selected="{{subpage3}}">
           <uengine-service-warranty></uengine-service-warranty>
           <uengine-service-consulting></uengine-service-consulting>
@@ -343,18 +343,26 @@
         subpage3:{
           type: String,
           value: 0
+        },
+        pageName:{
+          type: String,
+          value: 0
         }
       },
 
 
       defaultpage: function(e){
        var headingBackgroundColor = e.currentTarget.getAttribute('head-background-color');
+       var pageName = e.currentTarget.getAttribute('pageName');
+       console.log(pageName);
+       var $parentDiv = $(this).closest("div").context.$;
+       console.log( $parentDiv);
+
        document.getElementById('appHeader').style.backgroundColor = headingBackgroundColor;
        mainTextColor = headingBackgroundColor;
        this.mainFontTotalChange(mainTextColor);
        var headingResult = e.currentTarget.getAttribute('heading');
        this.heading = headingResult;
-
 
        var isflex2childValue = e.currentTarget.getAttribute('isflex2child');
        if(isflex2childValue == "true"){
@@ -379,7 +387,7 @@
           if (subMenu == "true") {
 
           }
-        }
+        },
     });
   </script>
 
