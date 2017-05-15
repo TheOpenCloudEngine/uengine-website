@@ -1,25 +1,5 @@
 
   <!-- menu  -->
-
-  <link rel="import" href="../uengine-about/uengine-about.html">
-  <link rel="import" href="../uengine-about/uengine-about-opensource.html">
-  <link rel="import" href="../uengine-about/uengine-about-bpm.html">
-  <link rel="import" href="../uengine-about/uengine-about-architecture.html">
-  <link rel="import" href="../uengine-about/uengine-about-functionality.html">
-  <link rel="import" href="../uengine-about/uengine-about-license.html">
-  <link rel="import" href="../uengine-products/uengine-products-bpms.html">
-  <link rel="import" href="../uengine-case-studies/uengine-case-studies.html">
-  <link rel="import" href="../uengine-head-image/uengine-head-image.html">
-  <link rel="import" href="../uengine-home/uengine-home.html">
-  <link rel="import" href="../uengine-products/uengine-products.html">
-  <link rel="import" href="../uengine-about/uengine-about-license.html">
-  <link rel="import" href="../youtube-box/youtube-box.html">
-  <link rel="import" href="../uengine-service/uengine-service-warranty.html">
-  <link rel="import" href="../uengine-service/uengine-service-consulting.html">
-  <link rel="import" href="../uengine-service/uengine-service-training.html">
-  <link rel="import" href="/Image/uengine.html">
-
-
 <dom-module id="uenginehome-app">
   <template>
 
@@ -172,16 +152,16 @@
 
           <!--main menu: Products  -->
 
-          <paper-submenu label="paper-submenu" subMenu="true">
+          <paper-submenu label="paper-submenu" subMenu="true" selected="{{bpmpage}}" on-tap="defaultpage" pageName="bpmpage">
             <paper-button class="menu-trigger app-menu-item">
               <div>
                 <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
                 <span>Products</span>
               </div>
             </paper-button>
-            <paper-menu class="menu-content sublist">
+            <paper-menu class="menu-content sublist" selected="{{bpmpage}}">
               <paper-submenu label="BPM Products" >
-                <paper-item class="menu-trigger app-menu-item-sub" reset>BPM Products</paper-item>
+                <paper-item class="menu-trigger app-menu-item-sub" >BPM Products</paper-item>
                 <paper-menu class="menu-content sublist2" selected="{{bpmpage}}">
                   <a class="app-menu-item-sub" style="padding-left: 50px">uEngine BPM</a>
                   <a class="app-menu-item-sub" style="padding-left: 50px">Essencia</a>
@@ -207,7 +187,7 @@
           </paper-submenu>
 
           <!--main menu: Case Studies  -->
-          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Case Studies" head-background-color="#ad1457" isflex2child="false" subMenu>
+          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Case Studies" head-background-color="#ad1457" isflex2child="false" pageName="mainmenu">
             <div>
               <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
               <span> Case Studies </span>
@@ -216,7 +196,7 @@
 
           <!--main menu: Library -->
 
-          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Library" head-background-color="#3949ab" isflex2child="true" subMenu>
+          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Library" head-background-color="#3949ab" isflex2child="true" pageName="mainmenu">
             <div>
               <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
               <span> Library </span>
@@ -225,7 +205,7 @@
 
 
           <!--main menu: Event  -->
-          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Event" head-background-color="#039be5" isflex2child="false" subMenu>
+          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Event" head-background-color="#039be5" isflex2child="false" pageName="mainmenu">
             <div>
               <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
               <span> Event </span>
@@ -347,16 +327,33 @@
         pageName:{
           type: String,
           value: 0
+        },
+        bpmpage:{
+          type: String,
+          value: 0
         }
       },
 
 
       defaultpage: function(e){
        var headingBackgroundColor = e.currentTarget.getAttribute('head-background-color');
-       var pageName = e.currentTarget.getAttribute('pageName');
-       console.log(pageName);
-       var $parentDiv = $(this).closest("div").context.$;
-       console.log( $parentDiv);
+
+       var pageName = '#' + e.currentTarget.getAttribute('pageName');
+       var $parentDiv = $("#contentContainer").contents(pageName);
+
+       if ( $("#contentContainer").contents(':nth-child(2)').get(0) == $($parentDiv).get(0) ) {
+         $("#contentContainer").contents(':nth-child(2)').css({"display":"block"});
+         $("#contentContainer").contents(':nth-child(3)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(4)').css({"display":"none"});
+       } else if ( $("#contentContainer").contents(':nth-child(3)').get(0) == $($parentDiv).get(0) ) {
+         $("#contentContainer").contents(':nth-child(2)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(3)').css({"display":"block"});
+         $("#contentContainer").contents(':nth-child(4)').css({"display":"none"});
+       } else if ( $("#contentContainer").contents(':nth-child(4)').get(0) == $($parentDiv).get(0) ) {
+         $("#contentContainer").contents(':nth-child(2)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(3)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(4)').css({"display":"block"});
+       }
 
        document.getElementById('appHeader').style.backgroundColor = headingBackgroundColor;
        mainTextColor = headingBackgroundColor;

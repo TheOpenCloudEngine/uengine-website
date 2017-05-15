@@ -65,12 +65,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="/bower_components/bwt-datatable/bwt-datatable.html">
   <link rel="import" href="/bower_components/bwt-datatable/bwt-datatable-card.html">
   <link rel="import" href="/bower_components/bwt-datatable/docs/documentation-menu.html">
+  <link rel="import" href="/bower_components/bs-timeline/bs-timeline.html">
+  <link rel="import" href="src/uengine-about/uengine-about.html">
+  <link rel="import" href="src/uengine-about/uengine-about-opensource.html">
+  <link rel="import" href="src/uengine-about/uengine-about-bpm.html">
+  <link rel="import" href="src/uengine-about/uengine-about-architecture.html">
+  <link rel="import" href="src/uengine-about/uengine-about-functionality.html">
+  <link rel="import" href="src/uengine-about/uengine-about-license.html">
+  <link rel="import" href="src/uengine-products/uengine-products-bpms.html">
+  <link rel="import" href="src/uengine-case-studies/uengine-case-studies.html">
+  <link rel="import" href="src/uengine-head-image/uengine-head-image.html">
+  <link rel="import" href="src/uengine-home/uengine-home.html">
+  <link rel="import" href="src/uengine-products/uengine-products.html">
+  <link rel="import" href="src/uengine-about/uengine-about-license.html">
+  <link rel="import" href="src/youtube-box/youtube-box.html">
+  <link rel="import" href="src/uengine-service/uengine-service-warranty.html">
+  <link rel="import" href="src/uengine-service/uengine-service-consulting.html">
+  <link rel="import" href="src/uengine-service/uengine-service-training.html">
+  <link rel="import" href="src/uengine-event/uengine-event.html">
+  <link rel="import" href="src/uengine-home/uengine-home-timeline/uengine-home-timeline.html">
+  <link rel="import" href="src/uengine-home/uengine-home-svg/uengine-home-svg.html">
+  <link rel="import" href="src/Image/uengine.html">
 
-
-
-
-  <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel='stylesheet' type="text/css" >
   <link rel="import" href="/src/uenginehome-app/uenginehome-app.html">
   <style>
 
@@ -87,6 +105,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <body unresolved>
 
     <uenginehome-app></uenginehome-app>
-
+    <script>
+    (function() {
+      if ('registerElement' in document
+          && 'import' in document.createElement('link')
+          && 'content' in document.createElement('template')) {
+            console.log("----chrome----")
+        // platform is good!
+      } else {
+        // polyfill the platform!
+        console.log("----ie----")
+        var e = document.createElement('script');
+        e.src = '/bower_components/webcomponentsjs/webcomponents-lite.js';
+        document.body.appendChild(e);
+      }
+    })();
+    </script>
 </body>
 </html>
