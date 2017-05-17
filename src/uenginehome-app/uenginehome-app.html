@@ -159,10 +159,10 @@
                 <span>Products</span>
               </div>
             </paper-button>
-            <paper-menu class="menu-content sublist" selected="{{bpmpage}}">
-              <paper-submenu label="BPM Products" >
-                <paper-item class="menu-trigger app-menu-item-sub" >BPM Products</paper-item>
-                <paper-menu class="menu-content sublist2" selected="{{bpmpage}}">
+            <paper-menu class="menu-content sublist">
+              <paper-submenu label="BPM Products">
+                <paper-item class="menu-trigger app-menu-item-sub">BPM Products</paper-item>
+                <paper-menu class="menu-content sublist2" selected="{{bpmpage}}"  on-tap="defaultpage" pageName="bpmpage">  
                   <a class="app-menu-item-sub" style="padding-left: 50px">uEngine BPM</a>
                   <a class="app-menu-item-sub" style="padding-left: 50px">Essencia</a>
                   <a class="app-menu-item-sub" style="padding-left: 50px">SNS</a>
@@ -170,7 +170,7 @@
               </paper-submenu>
                 <paper-submenu label="Cloud Platform">
                   <paper-item class="menu-trigger app-menu-item-sub">Cloud Platform</paper-item>
-                  <paper-menu class="menu-content sublist2">
+                  <paper-menu class="menu-content sublist2" selected="{{cloudpage}}"  on-tap="defaultpage"  pageName="cloudpage">
                     <a class="app-menu-item-sub" style="padding-left: 50px">Garuda PaaS</a>
                     <a class="app-menu-item-sub" style="padding-left: 50px">uEngine Billing</a>
                     <a class="app-menu-item-sub" style="padding-left: 50px">IAM/API Gateway</a>
@@ -178,7 +178,7 @@
               </paper-submenu>
               <paper-submenu label="Libraries and Frameworks">
                 <paper-item class="menu-trigger app-menu-item-sub">Libraries and Frameworks</paper-item>
-                <paper-menu class="menu-content sublist2">
+                <paper-menu class="menu-content sublist2"  selected="{{libpage}}"  on-tap="defaultpage" pageName="libpage">
                   <a class="app-menu-item-sub" style="padding-left: 50px">Open Graph</a>
                   <a class="app-menu-item-sub" style="padding-left: 50px">Metaworks</a>
                 </paper-menu>
@@ -278,6 +278,19 @@
             <uengine-products-bpms><uengine-products-bpms>
           </iron-pages>
         </div>
+        <div id="cloudpage">
+          <iron-pages selected="{{cloudpage}}">
+            <br>
+            <uengine-products-billing></uengine-products-billing>
+            <br>
+          </iron-pages>
+        </div>
+        <div id="libpage">
+          <iron-pages selected="{{libpage}}">
+            <br>
+            <br>
+          </iron-pages>
+        </div>
         <div id="subpage3">
         <iron-pages selected="{{subpage3}}">
           <uengine-service-warranty></uengine-service-warranty>
@@ -331,6 +344,14 @@
         bpmpage:{
           type: String,
           value: 0
+        },
+        cloudpage:{
+          type: String,
+          value: 0
+        },
+        libpage:{
+          type: String,
+          value: 0
         }
       },
 
@@ -338,21 +359,41 @@
       defaultpage: function(e){
        var headingBackgroundColor = e.currentTarget.getAttribute('head-background-color');
 
+       //페이지 div 크기조절
        var pageName = '#' + e.currentTarget.getAttribute('pageName');
        var $parentDiv = $("#contentContainer").contents(pageName);
+       console.log($parentDiv)
 
        if ( $("#contentContainer").contents(':nth-child(2)').get(0) == $($parentDiv).get(0) ) {
          $("#contentContainer").contents(':nth-child(2)').css({"display":"block"});
          $("#contentContainer").contents(':nth-child(3)').css({"display":"none"});
          $("#contentContainer").contents(':nth-child(4)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(5)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(6)').css({"display":"none"});
        } else if ( $("#contentContainer").contents(':nth-child(3)').get(0) == $($parentDiv).get(0) ) {
          $("#contentContainer").contents(':nth-child(2)').css({"display":"none"});
          $("#contentContainer").contents(':nth-child(3)').css({"display":"block"});
          $("#contentContainer").contents(':nth-child(4)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(5)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(6)').css({"display":"none"});
        } else if ( $("#contentContainer").contents(':nth-child(4)').get(0) == $($parentDiv).get(0) ) {
          $("#contentContainer").contents(':nth-child(2)').css({"display":"none"});
          $("#contentContainer").contents(':nth-child(3)').css({"display":"none"});
          $("#contentContainer").contents(':nth-child(4)').css({"display":"block"});
+         $("#contentContainer").contents(':nth-child(5)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(6)').css({"display":"none"});
+       } else if ( $("#contentContainer").contents(':nth-child(5)').get(0) == $($parentDiv).get(0) ) {
+         $("#contentContainer").contents(':nth-child(2)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(3)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(4)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(5)').css({"display":"block"});
+         $("#contentContainer").contents(':nth-child(6)').css({"display":"none"});
+       } else if ( $("#contentContainer").contents(':nth-child(6)').get(0) == $($parentDiv).get(0) ) {
+         $("#contentContainer").contents(':nth-child(2)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(3)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(4)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(5)').css({"display":"none"});
+         $("#contentContainer").contents(':nth-child(6)').css({"display":"block"});
        }
 
        document.getElementById('appHeader').style.backgroundColor = headingBackgroundColor;
